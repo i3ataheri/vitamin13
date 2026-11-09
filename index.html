@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فيتامين 13 | Vitamin 13 - القائمة الرقمية</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-burgundy: #7b1827;
+            --burgundy-dark: #580e1a;
+            --burgundy-light: #9c2133;
+            --yellow-logo: #fbba00;
+            --crimson-accent: #a41324;
+            --text-white: #ffffff;
+            --text-subtle: #f3e5e8;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(251, 186, 0, 0.25);
+            --shadow-sm: 0 4px 15px rgba(0,0,0,0.2);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-burgundy);
+            background-image: radial-gradient(circle at 50% 0%, #9c2133 0%, #7b1827 50%, #460912 100%);
+            color: var(--text-white);
+            min-height: 100vh;
+            padding-bottom: 90px;
+        }
+
+        /* Header & Logo */
+        header {
+            text-align: center;
+            padding: 25px 15px 15px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--yellow-logo), var(--crimson-accent));
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(251, 186, 0, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(251, 186, 0, 0.8); }
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--bg-burgundy);
+            background-color: var(--bg-burgundy);
+        }
+
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--yellow-logo);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 4px;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-subtle);
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 15px auto 20px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border-radius: 25px;
+            border: 2px solid var(--card-border);
+            background: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input:focus {
+            border-color: var(--yellow-logo);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 15px rgba(251, 186, 0, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--yellow-logo);
+        }
+
+        /* Category Tabs */
+        .categories-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(123, 24, 39, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 10px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .categories-scroll {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 0 20px;
+            scrollbar-width: none;
+        }
+
+        .categories-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--yellow-logo);
+            color: var(--burgundy-dark);
+            border-color: var(--yellow-logo);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 186, 0, 0.4);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--yellow-logo);
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(251, 186, 0, 0.2);
+            padding-bottom: 8px;
+        }
+
+        /* Grid System */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Food Card */
+        .food-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--yellow-logo);
+        }
+
+        .food-img-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .food-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .food-card:hover .food-img {
+            transform: scale(1.08);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--crimson-accent);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .badge.popular {
+            background: var(--yellow-logo);
+            color: var(--burgundy-dark);
+        }
+
+        .food-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .food-desc {
+            font-size: 0.85rem;
+            color: var(--text-subtle);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .food-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--yellow-logo);
+        }
+
+        .price span {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, var(--yellow-logo), #e0a700);
+            color: var(--burgundy-dark);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: #fff;
+        }
+
+        /* Branches Section */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .branch-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .branch-card:hover {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: var(--yellow-logo);
+        }
+
+        .branch-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(251, 186, 0, 0.15);
+            color: var(--yellow-logo);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .branch-details h4 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .branch-details p {
+            font-size: 0.8rem;
+            color: var(--text-subtle);
+        }
+
+        .map-btn {
+            background: var(--yellow-logo);
+            color: var(--burgundy-dark);
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .map-btn:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Social Media Bar */
+        .social-section {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--yellow-logo);
+            color: var(--burgundy-dark);
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        /* Floating Cart Bar */
+        .cart-float-bar {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 500px;
+            background: linear-gradient(135deg, var(--yellow-logo), #e0a700);
+            color: var(--burgundy-dark);
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            cursor: pointer;
+            z-index: 999;
+            transition: var(--transition);
+            font-weight: 800;
+        }
+
+        .cart-float-bar:hover {
+            transform: translateX(-50%) scale(1.02);
+            background: #ffffff;
+        }
+
+        .cart-count-badge {
+            background: var(--burgundy-dark);
+            color: var(--yellow-logo);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        /* Cart Modal Drawer */
+        .cart-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-end;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            width: 100%;
+            max-width: 420px;
+            background: var(--burgundy-dark);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-right: 2px solid var(--yellow-logo);
+        }
+
+        .cart-modal.open .cart-drawer {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .cart-header h3 {
+            color: var(--yellow-logo);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-cart-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .clear-all-btn {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .clear-all-btn:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .cart-items-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cart-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .cart-item-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .cart-item-price {
+            font-size: 0.85rem;
+            color: var(--yellow-logo);
+            font-weight: 800;
+        }
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-qty-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cart-qty-btn:hover {
+            background: var(--yellow-logo);
+            color: #000;
+        }
+
+        /* Explicit Delete Button for Individual Item */
+        .cart-item-remove {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: rgba(231, 76, 60, 0.25);
+            border: 1px solid rgba(231, 76, 60, 0.6);
+            color: #ff6b6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-right: 4px;
+        }
+
+        .cart-item-remove:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: rgba(0,0,0,0.4);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cart-total-row span:last-child {
+            color: var(--yellow-logo);
+        }
+
+        .whatsapp-send-btn {
+            width: 100%;
+            background: #25d366;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-send-btn:hover {
+            background: #1ebc57;
+            transform: translateY(-2px);
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            color: var(--text-subtle);
+            margin-top: 40px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="شعار فيتامين 13" class="logo-img" onerror="this.src='https://via.placeholder.com/150/7b1827/fbba00?text=VITAMIN+13'">
+        </div>
+        <h1 class="header-title">فيتامين 13 | VITAMIN 13</h1>
+        <p class="header-subtitle">عصائر طبيعية طازجة • شاورما طازجة يومياً • وجبات مميزة</p>
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            مفتوح الآن لاستقبال طلباتكم
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن وجبتك أو عصيرك المفضل...">
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="categories-wrapper">
+        <div class="categories-scroll" id="categoriesScroll">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">
+                <i class="fa-solid fa-utensils"></i> الكل
+            </button>
+            <button class="cat-btn" onclick="filterCategory('shawarma', this)">
+                <i class="fa-solid fa-drumstick-bite"></i> الشاورما والوجبات
+            </button>
+            <button class="cat-btn" onclick="filterCategory('juices', this)">
+                <i class="fa-solid fa-glass-citrus"></i> العصائر الطبيعية
+            </button>
+            <button class="cat-btn" onclick="filterCategory('cocktails', this)">
+                <i class="fa-solid fa-cocktail"></i> الكوكتيلات الخلطات
+            </button>
+            <button class="cat-btn" onclick="filterCategory('desserts', this)">
+                <i class="fa-solid fa-ice-cream"></i> الحلويات والحلويات
+            </button>
+            <button class="cat-btn" onclick="filterCategory('branches', this)">
+                <i class="fa-solid fa-location-dot"></i> الفروع والمعلومات
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- Menu Items Section -->
+        <div id="menuContainer">
+            <!-- Dynamic Category Sections will render here -->
+        </div>
+
+        <!-- Branches Section -->
+        <div id="branchesSection">
+            <h2 class="section-title"><i class="fa-solid fa-store"></i> فروع فيتامين 13 (المدينة المنورة)</h2>
+            <div class="branches-grid">
+                
+                <!-- Branch 1 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع ممشى الهجرة</h4>
+                            <p>حي الحديقة - طريق الهجرة</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Mamsha+Al+Hijra+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 2 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع شارع ساري</h4>
+                            <p>حي العريض - شارع ساري</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Sari+Street+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 3 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع سلطانة</h4>
+                            <p>طريق الملك عبدالله الفرعي (الدائري - حي الراية)</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Sultana+King+Abdullah+Branch+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 4 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع العزيزية</h4>
+                            <p>شارع الإمام البخاري (حي الدفاع)</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Al+Aziziyah+Imam+Bukhari+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 5 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع بدراني</h4>
+                            <p>طريق الأمير محمد بن عبدالعزيز - حي البدراني</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Prince+Mohammed+Bin+Abdulaziz+St+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 6 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع راشد مول</h4>
+                            <p>راشد مول - طريق الأمير محمد بن عبدالعزيز</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Rashid+Mall+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+                <!-- Branch 7 -->
+                <div class="branch-card">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="branch-icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div class="branch-details">
+                            <h4>فرع طريق سلام</h4>
+                            <p>شارع عبدالملك ابن هاشم - طريق سلام</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Vitamin+13+Salam+Road+Madinah" target="_blank" class="map-btn">
+                        <i class="fa-solid fa-location-arrow"></i> الخريطة
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-section">
+            <h3 style="color: var(--yellow-logo); font-size: 1.1rem; margin-bottom: 8px;">تواصل معنا وتطبيقات التواصل</h3>
+            <div class="social-links">
+                <a href="tel:966500000000" class="social-btn" title="اتصال تلفوني"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/966500000000" class="social-btn" title="واتساب المباشر"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-btn" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="social-btn" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://snapchat.com" target="_blank" class="social-btn" title="اسنپ شات"><i class="fa-brands fa-snapchat"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Floating Cart Bar Button -->
+    <div class="cart-float-bar" id="cartFloatBar" onclick="toggleCartModal(true)">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-basket-shopping" style="font-size: 1.2rem;"></i>
+            <span>سلة الطلبات</span>
+            <span class="cart-count-badge" id="cartBadgeCount">0</span>
+        </div>
+        <div id="cartBarTotal">0 ر.س</div>
+    </div>
+
+    <!-- Cart Modal Drawer -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3><i class="fa-solid fa-bag-shopping"></i> سلة التسوق</h3>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="clear-all-btn" onclick="clearCart()"><i class="fa-solid fa-trash-can"></i> مسح الكل</button>
+                    <button class="close-cart-btn" onclick="toggleCartModal(false)"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            
+            <div class="cart-items-list" id="cartItemsContainer">
+                <!-- Cart Items Rendered Here -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartDrawerTotal">0 ر.س</span>
+                </div>
+                <button class="whatsapp-send-btn" onclick="sendOrderWhatsApp()">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>
+                    إرسال الطلب عبر الواتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu Data
+        const menuData = [
+            {
+                id: 1,
+                name: "شاورما دجاج صاج كلاسيك",
+                category: "shawarma",
+                price: 12,
+                desc: "شرائح دجاج طازجة متبلة على طريقة فيتامين 13 مع الثومية المتميزة والبطاطس والمخلل",
+                badge: "الأكثر طلباً",
+                badgeType: "popular",
+                img: "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 2,
+                name: "صاروخ شاورما دجاج جامبو",
+                category: "shawarma",
+                price: 18,
+                desc: "خبز صاج كبير محشو بدجاج الشاورما المحمر مع الصوصات الخاصة",
+                badge: "وجبة مشبعة",
+                badgeType: "",
+                img: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 3,
+                name: "صحن عربي شاورما 13 المميز",
+                category: "shawarma",
+                price: 28,
+                desc: "قطع شاورما صاج مقطعة تقدم مع البطاطس المقلية، صوص الثوم، صوص الحار، ومخلل",
+                badge: "مميز",
+                badgeType: "popular",
+                img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 4,
+                name: "عصير برتقال طازج 100%",
+                category: "juices",
+                price: 14,
+                desc: "عصير برتقال معصور طازجاً فور الطلب بدون إضافات أو سكر",
+                badge: "طازج",
+                badgeType: "popular",
+                img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 5,
+                name: "عصير مانجو فرغلي فاخر",
+                category: "juices",
+                price: 16,
+                desc: "مانجو طازجة كثيفة وغنية بالفيتامينات والمذاق الرائع",
+                badge: "فيتا 13",
+                badgeType: "",
+                img: "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 6,
+                name: "كوكتيل فيتامين 13 الملكي",
+                category: "cocktails",
+                price: 22,
+                desc: "طبقات من المانجو، الفراولة، الجوافة مع قطع الفواكه الطازجة والمكسرات والعسل",
+                badge: "التوقيع",
+                badgeType: "popular",
+                img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 7,
+                name: "كوكتيل أفوكادو بالعسل والمكسرات",
+                category: "cocktails",
+                price: 24,
+                desc: "أفوكادو كريمي طازج مضاف إليه العسل الطبيعي والمكسرات الفاخرة",
+                badge: "طاقة وصحة",
+                badgeType: "",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 8,
+                name: "سلطة فواكه استوائية",
+                category: "desserts",
+                price: 20,
+                desc: "تشكيلة من الفواكه الموسمية المقطعة مع صوص المانجو والقشطة الطازجة",
+                badge: "تحلية",
+                badgeType: "",
+                img: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=500&q=80"
+            }
+        ];
+
+        let cart = {};
+
+        // Render Menu
+        function renderMenu(filterCategory = 'all', searchQuery = '') {
+            const container = document.getElementById('menuContainer');
+            container.innerHTML = '';
+
+            const categories = [
+                { id: 'shawarma', title: 'الشاورما والوجبات السريعة', icon: 'fa-drumstick-bite' },
+                { id: 'juices', title: 'العصائر الطبيعية الطازجة', icon: 'fa-glass-citrus' },
+                { id: 'cocktails', title: 'الكوكتيلات وخلطات فيتامين 13', icon: 'fa-cocktail' },
+                { id: 'desserts', title: 'الحلويات وسلطات الفواكه', icon: 'fa-ice-cream' }
+            ];
+
+            categories.forEach(cat => {
+                if (filterCategory !== 'all' && filterCategory !== cat.id) return;
+
+                const items = menuData.filter(item => {
+                    const matchesCat = item.category === cat.id;
+                    const matchesSearch = item.name.includes(searchQuery) || item.desc.includes(searchQuery);
+                    return matchesCat && matchesSearch;
+                });
+
+                if (items.length > 0) {
+                    const section = document.createElement('div');
+                    section.innerHTML = `
+                        <h2 class="section-title"><i class="fa-solid ${cat.icon}"></i> ${cat.title}</h2>
+                        <div class="menu-grid">
+                            ${items.map(item => `
+                                <div class="food-card">
+                                    <div class="food-img-wrapper">
+                                        <img src="${item.img}" alt="${item.name}" class="food-img" loading="lazy">
+                                        ${item.badge ? `<span class="badge ${item.badgeType}">${item.badge}</span>` : ''}
+                                    </div>
+                                    <div class="food-info">
+                                        <h3 class="food-title">${item.name}</h3>
+                                        <p class="food-desc">${item.desc}</p>
+                                        <div class="food-footer">
+                                            <div class="price">${item.price} <span>ر.س</span></div>
+                                            <button class="add-btn" onclick="addToCart(${item.id})" title="إضافة للسلة">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    container.appendChild(section);
+                }
+            });
+        }
+
+        // Filter Category Click
+        function filterCategory(catId, btnElement) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const branchesSec = document.getElementById('branchesSection');
+            if (catId === 'branches') {
+                document.getElementById('menuContainer').style.display = 'none';
+                branchesSec.style.display = 'block';
+            } else {
+                document.getElementById('menuContainer').style.display = 'block';
+                branchesSec.style.display = 'block';
+                renderMenu(catId, document.getElementById('searchInput').value);
+            }
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            if (cart[id]) {
+                cart[id].qty++;
+            } else {
+                const item = menuData.find(i => i.id === id);
+                cart[id] = { ...item, qty: 1 };
+            }
+            updateCartUI();
+        }
+
+        function changeQty(id, delta) {
+            if (cart[id]) {
+                cart[id].qty += delta;
+                if (cart[id].qty <= 0) {
+                    delete cart[id];
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            if (cart[id]) {
+                delete cart[id];
+            }
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = {};
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            container.innerHTML = '';
+
+            let total = 0;
+            let count = 0;
+
+            const items = Object.values(cart);
+
+            if (items.length === 0) {
+                container.innerHTML = '<div class="empty-cart-msg"><i class="fa-solid fa-basket-shopping" style="font-size:2.5rem; margin-bottom:10px; opacity:0.5;"></i><br>السلة فارغة حالياً<br>أضف بعض الوجبات والعصائر الشهية!</div>';
+            } else {
+                items.forEach(item => {
+                    total += item.price * item.qty;
+                    count += item.qty;
+
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
+                        <div>
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">${item.price * item.qty} ر.س (${item.price} ر.س)</div>
+                        </div>
+                        <div class="cart-controls">
+                            <button class="cart-qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                            <span style="font-weight:bold; font-size:0.95rem;">${item.qty}</span>
+                            <button class="cart-qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                            <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="حذف هذا العنصر">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    `;
+                    container.appendChild(itemEl);
+                });
+            }
+
+            document.getElementById('cartBadgeCount').innerText = count;
+            document.getElementById('cartBarTotal').innerText = `${total} ر.س`;
+            document.getElementById('cartDrawerTotal').innerText = `${total} ر.س`;
+        }
+
+        function toggleCartModal(show) {
+            const modal = document.getElementById('cartModal');
+            if (show) modal.classList.add('open');
+            else modal.classList.remove('open');
+        }
+
+        function sendOrderWhatsApp() {
+            const items = Object.values(cart);
+            if (items.length === 0) {
+                alert('السلة فارغة! يرجى إضافة وجبات أولاً.');
+                return;
+            }
+
+            let msg = "مرحباً *فيتامين 13* 👋\nأود تقديم الطلب التالي من القائمة الرقمية:\n\n";
+            let total = 0;
+
+            items.forEach((item, idx) => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                msg += `${idx + 1}. *${item.name}* × ${item.qty} = ${subtotal} ر.س\n`;
+            });
+
+            msg += `\n💵 *الإجمالي الكلي:* ${total} ر.س\n`;
+            msg += `📍 *الرجاء تزويدي بأقرب فرع للتوصيل أو الاستلام.*`;
+
+            const phone = "966500000000"; // شماره واتساپ پشتیبانی
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // Live Search Handler
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderMenu('all', e.target.value);
+        });
+
+        // Initialize Page
+        renderMenu();
+    </script>
+</body>
+</html>
